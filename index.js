@@ -234,7 +234,7 @@ console.log(artists[2].bio);
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 (no function needed) 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
-console.log(artists[8].name);
+// console.log(artists[8].name);
 artists[8].name = "Vincent Van Gogh";
 console.log(artists[8].name);
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
@@ -245,8 +245,9 @@ console.log(artists[8].name);
  
  Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(/*Your Code Here*/) {
-  /*Your Code Here*/
+function getArtistByIndex(artist, num) {
+  let result = artist[num];
+  return "the artist at index " + num + " is " + result.name;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -257,9 +258,19 @@ Use get20s to do the following:
 Example born in 1901 and died in 1959 - included -- born in 1889 and died in 1925 not included
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(/*Your Code Here*/) {
-  /*Your Code Here*/
+function get20s(artists) {
+  let results = [];
+  for (let i = 0; i < artists.length; i++) {
+    const element = artists[i];
+    let BornAge = artists[i].years.split(" ")[0];
+    let DeadAge = artists[i].years.split(" ")[2];
+    if (BornAge >= 1900 && DeadAge < 2000) {
+      results.push(artists[i].name);
+    }
+  }
+  return results;
 }
+get20s(artists);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
  Use removeArtist to do the following:
